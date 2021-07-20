@@ -1,0 +1,13 @@
+config:
+    target: "http://localhost:81"
+    phases:
+      - duration: 5
+        arrivalRate: 100
+scenarios:
+    - flow:
+        - post:
+            url: "/signin/local?username=AAAAAA&password=12345678"
+        - loop:
+            - post:
+                url: "/"
+          count: 5

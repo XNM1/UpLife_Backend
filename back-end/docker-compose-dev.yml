@@ -1,0 +1,650 @@
+version: "3.7"
+
+volumes:
+  session-data:
+  session-replica-data:
+  cache-data:
+  db-zero-data:
+  db-alpha01-data:
+  db-alpha02-data:
+  db-alpha03-data:
+  storage-data:
+  logs-data:
+
+networks:
+  auth-network:
+  upload-network:
+  download-network:
+  mutate-network:
+  get-network:
+  notify-network:
+  notify-api-network:
+  seesion-network:
+    ipam:
+      config:
+        - subnet: 170.20.1.0/24
+  cache-network:
+    ipam:
+      config:
+        - subnet: 170.20.2.0/24
+  db-network:
+
+services:
+
+  auth01:
+    build: ./services/auth
+    hostname: auth01
+    environment:
+      - NAME=auth01
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - auth-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+      - mutate-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  auth02:
+    build: ./services/auth
+    hostname: auth02
+    environment:
+      - NAME=auth02
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - auth-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+      - mutate-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  auth03:
+    build: ./services/auth
+    hostname: auth03
+    environment:
+      - NAME=auth03
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - auth-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+      - mutate-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  auth-nginx:
+    image: nginx:latest
+    hostname: auth-nginx
+    networks:
+      - auth-network
+    volumes:
+      - ./nginx/auth-nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - auth01
+      - auth02
+      - auth03
+    ports:
+      - 81:81
+
+  upload01:
+    build: ./services/upload
+    hostname: upload01
+    environment:
+      - NAME=upload01
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - upload-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  upload02:
+    build: ./services/upload
+    hostname: upload02
+    environment:
+      - NAME=upload02
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - upload-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  upload03:
+    build: ./services/upload
+    hostname: upload03
+    environment:
+      - NAME=upload03
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - upload-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  upload-nginx:
+    image: nginx:latest
+    hostname: upload-nginx
+    networks:
+      - upload-network
+    volumes:
+      - ./nginx/upload-nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - upload01
+      - upload02
+      - upload03
+    ports:
+      - 83:83
+
+  download01:
+    build: ./services/download
+    hostname: download01
+    environment:
+      - NAME=download01
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - download-network
+      - db-network
+      - seesion-network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  download02:
+    build: ./services/download
+    hostname: download02
+    environment:
+      - NAME=download02
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - download-network
+      - db-network
+      - seesion-network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  download03:
+    build: ./services/download
+    hostname: download03
+    environment:
+      - NAME=download03
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - download-network
+      - db-network
+      - seesion-network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  download-nginx:
+    image: nginx:latest
+    hostname: download-nginx
+    networks:
+      - download-network
+    volumes:
+      - ./nginx/download-nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - download01
+      - download02
+      - download03
+    ports:
+      - 85:85
+
+  mutate01:
+    build: ./services/mutate
+    hostname: mutate01
+    environment:
+      - NAME=mutate01
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - mutate-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  mutate02:
+    build: ./services/mutate
+    hostname: mutate02
+    environment:
+      - NAME=mutate02
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - mutate-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  mutate03:
+    build: ./services/mutate
+    hostname: mutate03
+    environment:
+      - NAME=mutate03
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - mutate-network
+      - db-network
+      - seesion-network
+      - notify-api-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  mutate-nginx:
+    image: nginx:latest
+    hostname: mutate-nginx
+    networks:
+      - mutate-network
+    volumes:
+      - ./nginx/mutate-nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - mutate01
+      - mutate02
+      - mutate03
+    ports:
+      - 87:87
+
+  get01:
+    build: ./services/get
+    hostname: get01
+    environment:
+      - NAME=get01
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - get-network
+      - db-network
+      - seesion-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  get02:
+    build: ./services/get
+    hostname: get02
+    environment:
+      - NAME=get02
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - get-network
+      - db-network
+      - seesion-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  get03:
+    build: ./services/get
+    hostname: get03
+    environment:
+      - NAME=get03
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - get-network
+      - db-network
+      - seesion-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+
+  get-nginx:
+    image: nginx:latest
+    hostname: get-nginx
+    networks:
+      - get-network
+    volumes:
+      - ./nginx/get-nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - get01
+      - get02
+      - get03
+    ports:
+      - 89:89
+
+  notify01:
+    build: ./services/notify
+    hostname: notify01
+    environment:
+      - NAME=notify01
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - notify-network
+      - db-network
+      - cache-network
+      - seesion-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+      - redis-cache-haproxy
+
+  notify02:
+    build: ./services/notify
+    hostname: notify02
+    environment:
+      - NAME=notify02
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - notify-network
+      - db-network
+      - cache-network
+      - seesion-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+      - redis-cache-haproxy
+
+  notify03:
+    build: ./services/notify
+    hostname: notify03
+    environment:
+      - NAME=notify03
+    command: [ "bash", "-c", "npm update && npm install && npm audit fix && npm start" ]
+    networks:
+      - notify-network
+      - db-network
+      - cache-network
+      - seesion-network
+    volumes:
+      - logs-data:/usr/src/app/logs
+      - ./common-modules:/usr/src/app/common-modules
+      - ./config:/usr/src/app/config
+    depends_on:
+      - redis-session-haproxy
+      - redis-cache-haproxy
+
+  notify-nginx:
+    image: nginx:latest
+    hostname: notify-nginx
+    networks:
+      - notify-network
+      - notify-api-network
+    volumes:
+      - ./nginx/notify-nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - notify01
+      - notify02
+      - notify03
+    ports:
+      - 91:91
+
+  redis-session01:
+    image: redis:5.0
+    hostname: redis-session01
+    networks:
+      seesion-network:
+        ipv4_address: 170.20.1.2
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes01.conf
+    volumes:
+      - session-data:/data
+      - ./redis/redis-session.conf:/data/config/redis.conf
+
+  redis-session02:
+    image: redis:5.0
+    hostname: redis-session02
+    networks:
+      seesion-network:
+        ipv4_address: 170.20.1.3
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes02.conf
+    volumes:
+      - session-data:/data
+      - ./redis/redis-session.conf:/data/config/redis.conf
+
+  redis-session03:
+    image: redis:5.0
+    hostname: redis-session03
+    networks:
+      seesion-network:
+        ipv4_address: 170.20.1.4
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes03.conf
+    volumes:
+      - session-data:/data
+      - ./redis/redis-session.conf:/data/config/redis.conf
+
+  redis-session04:
+    image: redis:5.0
+    hostname: redis-session04
+    networks:
+      seesion-network:
+        ipv4_address: 170.20.1.5
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes04.conf
+    volumes:
+      - session-replica-data:/data
+      - ./redis/redis-session.conf:/data/config/redis.conf
+
+  redis-session05:
+    image: redis:5.0
+    hostname: redis-session05
+    networks:
+      seesion-network:
+        ipv4_address: 170.20.1.6
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes05.conf
+    volumes:
+      - session-replica-data:/data
+      - ./redis/redis-session.conf:/data/config/redis.conf
+
+  redis-session06:
+    image: redis:5.0
+    hostname: redis-session06
+    networks:
+      seesion-network:
+        ipv4_address: 170.20.1.7
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes06.conf
+    volumes:
+      - session-replica-data:/data
+      - ./redis/redis-session.conf:/data/config/redis.conf
+
+  redis-session-cluster:
+    tty: true
+    image: redis:5.0
+    hostname: redis-session-cluster
+    networks:
+      - seesion-network
+    command: redis-cli --cluster create 170.20.1.2:6379 170.20.1.3:6379 170.20.1.4:6379 170.20.1.5:6379 170.20.1.6:6379 170.20.1.7:6379 --cluster-replicas 1 --cluster-yes
+    volumes:
+      - session-data:/data
+    depends_on:
+      - redis-session01
+      - redis-session02
+      - redis-session03
+      - redis-session04
+      - redis-session05
+      - redis-session06
+
+  redis-session-haproxy:
+    image: haproxy:latest
+    hostname: redis-session-haproxy
+    networks:
+      - seesion-network
+    volumes:
+      - ./haproxy/redis-session-haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    depends_on:
+      - redis-session-cluster
+
+  redis-cache01:
+    image: redis:5.0
+    hostname: redis-cache01
+    networks:
+      cache-network:
+        ipv4_address: 170.20.2.2
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes01.conf
+    volumes:
+      - cache-data:/data
+      - ./redis/redis-cache.conf:/data/config/redis.conf
+
+  redis-cache02:
+    image: redis:5.0
+    hostname: redis-cache02
+    networks:
+      cache-network:
+        ipv4_address: 170.20.2.3
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes02.conf
+    volumes:
+      - cache-data:/data
+      - ./redis/redis-cache.conf:/data/config/redis.conf
+
+  redis-cache03:
+    image: redis:5.0
+    hostname: redis-cache03
+    networks:
+      cache-network:
+        ipv4_address: 170.20.2.4
+    command: redis-server /data/config/redis.conf --cluster-config-file nodes03.conf
+    volumes:
+      - cache-data:/data
+      - ./redis/redis-cache.conf:/data/config/redis.conf
+
+  redis-cache-cluster:
+    tty: true
+    image: redis:5.0
+    hostname: redis-cache-cluster
+    networks:
+      - cache-network
+    command: redis-cli --cluster create 170.20.2.2:6380 170.20.2.3:6380 170.20.2.4:6380 --cluster-yes
+    volumes:
+      - cache-data:/data
+    depends_on:
+      - redis-cache01
+      - redis-cache02
+      - redis-cache03
+
+  redis-cache-haproxy:
+    image: haproxy:latest
+    hostname: redis-cache-haproxy
+    networks:
+      - cache-network
+    volumes:
+      - ./haproxy/redis-cache-haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    depends_on:
+      - redis-cache-cluster
+
+  alpha01:
+    image: dgraph/dgraph:latest
+    hostname: alpha01
+    networks:
+      - db-network
+    command: dgraph alpha --my alpha01:7080 --lru_mb 2048 --zero zero:5080
+    volumes:
+      - db-alpha01-data:/dgraph
+    depends_on:
+      - zero
+    ports:
+      - 8080:8080
+      - 9080:9080
+
+  alpha02:
+    image: dgraph/dgraph:latest
+    hostname: alpha02
+    networks:
+      - db-network
+    command: dgraph alpha --my alpha02:7081 --lru_mb 2048 --zero zero:5080 -o 1
+    volumes:
+      - db-alpha02-data:/dgraph
+    depends_on:
+      - zero
+    ports:
+      - 8081:8081
+      - 9081:9081
+
+  alpha03:
+    image: dgraph/dgraph:latest
+    hostname: alpha03
+    networks:
+      - db-network
+    command: dgraph alpha --my alpha03:7082 --lru_mb 2048 --zero zero:5080 -o 2
+    volumes:
+      - db-alpha03-data:/dgraph
+    depends_on:
+      - zero
+    ports:
+      - 8082:8082
+      - 9082:9082
+
+  zero:
+    image: dgraph/dgraph:latest
+    networks:
+      - db-network
+    command: dgraph zero --my zero:5080 --replicas 3 --idx 1
+    volumes:
+      - db-zero-data:/dgraph
+    ports:
+      - 5080:5080
+      - 6080:6080

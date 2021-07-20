@@ -1,0 +1,16 @@
+{
+  "name": "dgraph-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dgraph-connection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "IAmIllusion",
+  "license": "ISC",
+  "dependencies": {
+    "dgraph-js": "^20.3.0",
+    "grpc": "^1.24.2"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "get-server",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "./index.js",
+  "author": "IAmIllusion",
+  "private": true,
+  "license": "none",
+  "scripts": {
+    "start": "node --max-old-space-size=4096 index.js",
+    "test": "mocha ./test/*.test.js"
+  },
+  "dependencies": {
+    "common-modules": "file:./common-modules/l1",
+    "app-passport": "file:./common-modules/l2/app-passport",
+    "dgraph-instance": "file:./common-modules/l3/dgraph-instance",
+    "express": "^4.17.1",
+    "logger": "file:./common-modules/l2/logger"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.2",
+    "sinon": "^9.0.2"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "dgraph-instance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dgraph-instance.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "IAmIllusion",
+  "license": "ISC",
+  "dependencies": {
+    "logger": "file:../../l2/logger",
+    "dgraph-db": "file:../../l2/dgraph-db",
+    "common-modules": "file:../../l1"
+  }
+}

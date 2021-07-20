@@ -1,0 +1,17 @@
+{
+  "name": "validator-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "IAmIllusion",
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.0.0",
+    "dgraph-instance": "file:../../common-modules/l3/dgraph-instance",
+    "logger": "file:../../common-modules/l2/logger"
+  }
+}

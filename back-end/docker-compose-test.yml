@@ -1,0 +1,72 @@
+version: "3.7"
+services:
+  nginx:
+    build: ./nginx
+    networks:
+      - backend_network
+    ports:
+      - "80:80"
+
+  app01:
+    build:
+      context: ./server
+      dockerfile: Dockerfile-test
+    networks:
+      - backend_network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+
+  app02:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    networks:
+      - backend_network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+
+  app03:
+    build:
+      context: ./server
+      dockerfile: Dockerfile-test
+    networks:
+      - backend_network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+
+  app04:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    networks:
+      - backend_network
+    volumes:
+      - storage-data:/usr/src/app/data
+      - logs-data:/usr/src/app/logs
+
+  redis_session:
+    build: ./redis/redis_session
+    networks:
+      - backend_network
+    volumes:
+      - session-data:/data
+
+  redis_cache:
+    build: ./redis/redis_cache
+    networks:
+      - backend_network
+    volumes:
+      - cache-data:/data
+
+volumes:
+  session-data:
+  cache-data:
+  db-data:
+  storage-data:
+  logs-data:
+
+networks:
+  backend_network:

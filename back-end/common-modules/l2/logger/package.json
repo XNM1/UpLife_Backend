@@ -1,0 +1,18 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "logger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "IAmIllusion",
+  "license": "ISC",
+  "dependencies": {
+    "@log4js-node/slack": "^1.0.0",
+    "common-modules": "file:../../l1",
+    "log4js": "^6.2.1",
+    "moment": "^2.25.3"
+  }
+}

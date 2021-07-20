@@ -1,0 +1,45 @@
+chat:
+    uid
+    name
+    backimage
+    members
+    messages
+    tags
+
+message:
+    uid
+    text
+    date
+    notify_date
+    read
+    author
+    tasks
+    tags
+
+filter:
+    uid
+    name
+    backimage
+    tags
+    author
+
+user:
+    uid
+    full_name
+    username
+    status
+    email
+    avatar
+    backimage
+    `password
+    contacts
+    filters
+
+tag:
+    uid
+    name
+
+task:
+    uid
+    text
+    checked
