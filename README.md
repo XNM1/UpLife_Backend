@@ -22,7 +22,7 @@ With real-time communication, you can enjoy seamless conversations with your con
 - 📃Message history
 - 💅Animated avatars and backgrounds
 - ✅Check lists in message
-- 🏷️Message Tags
+- 🏷️Message tags
 
 ## Requirements
 
