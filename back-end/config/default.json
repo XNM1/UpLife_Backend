@@ -17,17 +17,17 @@
     },
     "notify": {
       "port": "91",
-      "secret1": "HdC04SAV7sbxmqpWP3zO0fxd6umJ48W8zn0R_zEiHZTRl58Px0B9gM9ld1hGr0wnB7yrVhEqDOHMfxYWAY6wQhZ_HL",
-      "secret2": "ktO2oImtKxoqUOaZY9RwbBr7KtVHaHmKJzfn6hItLSZWD6u1Pv6C_jGglRiY66m7zepSjpGrP9jSOL9F_Gimvgfj1o_a7rmVXLHDvT4vJ",
-      "secret3": "P0GH8XI7Fx1QhEvUsoLzRhqYcndp0XrGQMVuwNlbvSDG0gZY2vkNdduXxNGnuUXdUeEAmzjcNTCmpNPeTYYfrLCVOskwWUYLSFfoPtU_p",
-      "secret4": "tjecpzrPWEfEbQbcAEUN6Mj79Vxwj8oX53ohpBvtcjoLycsWJoLeMd6rWdbwbiJOGTgbwNXmAw2qwZdncR6mjpJnkaSXrGG3KPjc7Jpej"
+      "secret1": "repleace_with_your_secret",
+      "secret2": "repleace_with_your_secret",
+      "secret3": "repleace_with_your_secret",
+      "secret4": "repleace_with_your_secret"
     }
   },
   "logger_mode": "debug_scrn",
   "db_session_config": {
     "db_session": "redis",
     "redis": {
-      "secret": "wEYWfYI_m9HURbS41Qt1cU74a_4gXUMAslIOUeqkvL3HeESSArvSVZbsidzdPoond_LrhvjNq6RYplmOlxHn2lbu3RNcvt2iZfWCzFLzn",
+      "secret": "repleace_with_your_secret",
       "client_config": {
         "port": "6379",
         "host": "redis-session-haproxy"
@@ -35,7 +35,7 @@
     }
   },
   "passport_config": {
-    "secret": "OpZXza39QG_bW5Oux0rxUSCMtFUtQg8aNvAE1fPBACh3a90evGTifED8VdE33_4NaEWweHJ6YCQ3Xr50evZkIS1OBdMEmCC1W738C9vqPl_tJdbNHr3STchf",
+    "secret": "repleace_with_your_secret",
     "session_name": "kB6_A05sy2OBX8O.sid"
   },
   "cache_config": {
@@ -48,37 +48,41 @@
     }
   },
   "dgraph_db_config": {
-    "hosts": ["alpha01:9080", "alpha02:9081", "alpha03:9082"],
+    "hosts": [
+      "alpha01:9080",
+      "alpha02:9081",
+      "alpha03:9082"
+    ],
     "scheme": [
-            "<dgraph.graphql.schema>: string .",
-            "<author>: uid @reverse .",
-            "<checked>: bool .",
-            "<contacts>: [uid] @count @reverse .",
-            "<date>: datetime @index(hour) .",
-            "<email>: string @index(term) .",
-            "<filters>: [uid] .",
-            "<full_name>: string @index(term) .",
-            "<members>: [uid] @reverse .",
-            "<messages>: [uid] @reverse .",
-            "<name>: string @index(fulltext) .",
-            "<notify_date>: datetime @index(day) .",
-            "<password>: password .",
-            "<status>: string .",
-            "<tags>: [uid] @count @reverse .",
-            "<tasks>: [uid] @count @reverse .",
-            "<text>: string @index(fulltext) .",
-            "<username>: string @index(term) .",
-            "<avatar>: string .",
-            "<backimage>: string ."
+      "<dgraph.graphql.schema>: string .",
+      "<author>: uid @reverse .",
+      "<checked>: bool .",
+      "<contacts>: [uid] @count @reverse .",
+      "<date>: datetime @index(hour) .",
+      "<email>: string @index(term) .",
+      "<filters>: [uid] .",
+      "<full_name>: string @index(term) .",
+      "<members>: [uid] @reverse .",
+      "<messages>: [uid] @reverse .",
+      "<name>: string @index(fulltext) .",
+      "<notify_date>: datetime @index(day) .",
+      "<password>: password .",
+      "<status>: string .",
+      "<tags>: [uid] @count @reverse .",
+      "<tasks>: [uid] @count @reverse .",
+      "<text>: string @index(fulltext) .",
+      "<username>: string @index(term) .",
+      "<avatar>: string .",
+      "<backimage>: string ."
     ],
     "user_scheme_auth": [
-        "uid",
-        "full_name",
-        "username",
-        "status",
-        "email",
-        "avatar",
-        "backimage"
+      "uid",
+      "full_name",
+      "username",
+      "status",
+      "email",
+      "avatar",
+      "backimage"
     ]
   }
 }
