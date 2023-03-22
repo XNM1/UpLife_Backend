@@ -20,7 +20,7 @@ With real-time communication, you can enjoy seamless conversations with your con
 - 🔑User registration, authentication and authorization
 - 👥Group chats
 - 📃Message history
-- 💅Animated avatars and backgrounds
+- 💅Avatars and backgrounds
 - ✅Check lists in message
 - 🏷️Message tags
 
