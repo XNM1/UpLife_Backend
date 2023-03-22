@@ -1,6 +1,8 @@
+<p align="center">
 ![UpLife Messenger Logo](Logo.png)
 # UpLife Messenger
 The highly available and scalable messenger for endless communication
+</p>
 
 ## About
 
