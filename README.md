@@ -1,6 +1,6 @@
 <div align="center"><img src="Logo.png" alt="UpLife Messenger Logo"/></div>
 <h1 align="center">UpLife Messenger</h1>
-<i align="center">The highly available and scalable messenger for endless communication</i>
+<p align="center"><i>The highly available and scalable messenger for endless communication</i></p>
 
 ## About
 
@@ -56,8 +56,8 @@ artillery run load-tests/get_data_test.yml
 ## Architecture
 
 <div align="center"><img src="diagrams/images/Server_Arch_Diagram.jpg" alt="Architecture Diagram"/></div>
-<p align="center">Backend Architecture Diagram</p>
-
+<p align="center"><i>Backend Architecture Diagram</i></p>
+<br><br>
 
 UpLife Messenger Backend is built using the following technologies:
 
@@ -74,28 +74,28 @@ UpLife Messenger Backend is built using the following technologies:
 The architecture of UpLife Messenger utilizes of the following patterns:
 
 <div align="center"><img src="diagrams/images/CQRS_Diagram.jpg" alt="CQRS Diagram"/></div>
-<p align="center">CQRS Diagram</p>
-
+<p align="center"><i>CQRS Diagram</i></p>
+<br><br>
 
 <div align="center"><img src="diagrams/images/Event_Bus_Diagram.jpg" alt="Event Bus Diagram"/></div>
-<p align="center">Event Bus Diagram</p>
-
+<p align="center"><i>Event Bus Diagram</i></p>
+<br><br>
 
 Data scheme diagrams:
 
 <div align="center"><img src="diagrams/images/ER_Diagram.jpg" alt="Entity-Relationship Diagram"/></div>
-<p align="center">Entity-Relationship Diagram</p>
-
+<p align="center"><i>Entity-Relationship Diagram</i></p>
+<br><br>
 
 <div align="center"><img src="diagrams/images/Graph_Diagram.jpg" alt="Graph Representation Diagram"/></div>
-<p align="center">Graph Representation of Data</p>
-
+<p align="center"><i>Graph Representation of Data</i></p>
+<br><br>
 
 Here's a sequence diagram that illustrates the interaction between the different components of the system:
 
 <div align="center"><img src="diagrams/images/Sequence_Diagram.jpg" alt="Sequence Diagram"/></div>
-<p align="center">Sequence Diagram</p>
-
+<p align="center"><i>Sequence Diagram</i></p>
+<br><br>
 
 ## License
 
