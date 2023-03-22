@@ -57,7 +57,7 @@ artillery run load-tests/get_data_test.yml
 
 <div align="center"><img src="diagrams/images/Server_Arch_Diagram.jpg" alt="Architecture Diagram"/></div>
 <p align="center"><i>Backend Architecture Diagram</i></p>
-<br><br>
+<br>
 
 UpLife Messenger Backend is built using the following technologies:
 
@@ -70,6 +70,7 @@ UpLife Messenger Backend is built using the following technologies:
 - Nginx
 - HAProxy
 - Docker
+<br>
 
 The architecture of UpLife Messenger utilizes of the following patterns:
 
@@ -79,7 +80,7 @@ The architecture of UpLife Messenger utilizes of the following patterns:
 
 <div align="center"><img src="diagrams/images/Event_Bus_Diagram.jpg" alt="Event Bus Diagram"/></div>
 <p align="center"><i>Event Bus Diagram</i></p>
-<br><br>
+<br>
 
 Data scheme diagrams:
 
@@ -89,13 +90,12 @@ Data scheme diagrams:
 
 <div align="center"><img src="diagrams/images/Graph_Diagram.jpg" alt="Graph Representation Diagram"/></div>
 <p align="center"><i>Graph Representation of Data</i></p>
-<br><br>
+<br>
 
 Here's a sequence diagram that illustrates the interaction between the different components of the system:
 
 <div align="center"><img src="diagrams/images/Sequence_Diagram.jpg" alt="Sequence Diagram"/></div>
 <p align="center"><i>Sequence Diagram</i></p>
-<br><br>
 
 ## License
 
