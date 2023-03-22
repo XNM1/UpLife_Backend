@@ -1,6 +1,6 @@
 <div align="center"><img src="Logo.png" alt="UpLife Messenger Logo"/></div>
 <h1 align="center">UpLife Messenger</h1>
-*<p align="center" style="font-style:italic">The highly available and scalable messenger for endless communication</p>*
+<i align="center">The highly available and scalable messenger for endless communication</i>
 
 ## About
 
@@ -56,7 +56,8 @@ artillery run load-tests/get_data_test.yml
 ## Architecture
 
 <div align="center"><img src="diagrams/images/Server_Arch_Diagram.jpg" alt="Architecture Diagram"/></div>
-<p align="center" style="font-style:italic">Backend Architecture Diagram</p>
+<p align="center">Backend Architecture Diagram</p>
+
 
 UpLife Messenger Backend is built using the following technologies:
 
@@ -73,23 +74,28 @@ UpLife Messenger Backend is built using the following technologies:
 The architecture of UpLife Messenger utilizes of the following patterns:
 
 <div align="center"><img src="diagrams/images/CQRS_Diagram.jpg" alt="CQRS Diagram"/></div>
-<p align="center" style="font-style:italic">CQRS Diagram</p>
+<p align="center">CQRS Diagram</p>
+
 
 <div align="center"><img src="diagrams/images/Event_Bus_Diagram.jpg" alt="Event Bus Diagram"/></div>
-<p align="center" style="font-style:italic">Event Bus Diagram</p>
+<p align="center">Event Bus Diagram</p>
+
 
 Data scheme diagrams:
 
 <div align="center"><img src="diagrams/images/ER_Diagram.jpg" alt="Entity-Relationship Diagram"/></div>
-<p align="center" style="font-style:italic">Entity-Relationship Diagram</p>
+<p align="center">Entity-Relationship Diagram</p>
+
 
 <div align="center"><img src="diagrams/images/Graph_Diagram.jpg" alt="Graph Representation Diagram"/></div>
-<p align="center" style="font-style:italic">Graph Representation of Data</p>
+<p align="center">Graph Representation of Data</p>
+
 
 Here's a sequence diagram that illustrates the interaction between the different components of the system:
 
 <div align="center"><img src="diagrams/images/Sequence_Diagram.jpg" alt="Sequence Diagram"/></div>
-<p align="center" style="font-style:italic">Sequence Diagram</p>
+<p align="center">Sequence Diagram</p>
+
 
 ## License
 
