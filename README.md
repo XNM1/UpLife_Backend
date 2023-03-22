@@ -1,13 +1,17 @@
-![UpLife Messenger Logo](Logo.png)
-# UpLife Messenger
+<div align="center"><img src="Logo.png" alt="UpLife Messenger Logo"/></div>
+<h1 align="center">UpLife Messenger</h1>
 <p align="center">The highly available and scalable messenger for endless communication</p>
 
 ## About
 
 UpLife Messenger is a powerful and versatile messaging application that provides a seamless communication experience for users. With UpLife Messenger, you can stay connected with your friends, family, and colleagues in real-time.
+
 One of the unique features of UpLife Messenger is support for checklists in messages, which makes it easy to manage tasks and collaborate with others. You can also add tags to your messages, which helps to organize and search for messages easily.
+
 UpLife Messenger uses real-time notification by WebSocket to ensure that you never miss an important message. The backend is highly scalable and available, so you can rely on it to deliver messages reliably and quickly.
+
 The app is open source, so you can customize it to suit your needs or contribute to the community. You can also customize your profile with avatars and backgrounds, and the app has a powerful contact system to help you manage your connections.
+
 With real-time communication, you can enjoy seamless conversations with your contacts, whether you're on the go or at your desk. 
 
 ## Features
