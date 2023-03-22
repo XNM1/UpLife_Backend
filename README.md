@@ -1,6 +1,6 @@
 <div align="center"><img src="Logo.png" alt="UpLife Messenger Logo"/></div>
 <h1 align="center">UpLife Messenger</h1>
-<p align="center">The highly available and scalable messenger for endless communication</p>
+<p align="center" style="font-style:italic">The highly available and scalable messenger for endless communication</p>
 
 ## About
 
@@ -55,8 +55,8 @@ artillery run load-tests/get_data_test.yml
 
 ## Architecture
 
-![Architecture Diagram](diagrams/images/Server_Arch_Diagram.jpg)
-*Backend Architecture Diagram*
+<div align="center"><img src="diagrams/images/Server_Arch_Diagram.jpg" alt="Architecture Diagram"/></div>
+<p align="center" style="font-style:italic">Backend Architecture Diagram</p>
 
 UpLife Messenger Backend is built using the following technologies:
 
@@ -72,24 +72,24 @@ UpLife Messenger Backend is built using the following technologies:
 
 The architecture of UpLife Messenger utilizes of the following patterns:
 
-![CQRS Diagram](diagrams/images/CQRS_Diagram.jpg)
-*CQRS Diagram*
+<div align="center"><img src="diagrams/images/CQRS_Diagram.jpg" alt="CQRS Diagram"/></div>
+<p align="center" style="font-style:italic">CQRS Diagram</p>
 
-![Event Bus Diagram](diagrams/images/Event_Bus_Diagram.jpg)
-*Event Bus Diagram*
+<div align="center"><img src="diagrams/images/Event_Bus_Diagram.jpg" alt="Event Bus Diagram"/></div>
+<p align="center" style="font-style:italic">Event Bus Diagram</p>
 
 Data scheme diagrams:
 
-![Entity-Relationship Diagram](diagrams/images/ER_Diagram.jpg)
-*Entity-Relationship Diagram*
+<div align="center"><img src="diagrams/images/ER_Diagram.jpg" alt="Entity-Relationship Diagram"/></div>
+<p align="center" style="font-style:italic">Entity-Relationship Diagram</p>
 
-![Graph Representation Diagram](diagrams/images/Graph_Diagram.jpg)
-*Graph Representation of Data*
+<div align="center"><img src="diagrams/images/Graph_Diagram.jpg" alt="Graph Representation Diagram"/></div>
+<p align="center" style="font-style:italic">Graph Representation of Data</p>
 
 Here's a sequence diagram that illustrates the interaction between the different components of the system:
 
-![Sequence Diagram](diagrams/images/Sequence_Diagram.jpg)
-*Sequence Diagram*
+<div align="center"><img src="diagrams/images/Sequence_Diagram.jpg" alt="Sequence Diagram"/></div>
+<p align="center" style="font-style:italic">Sequence Diagram</p>
 
 ## License
 
