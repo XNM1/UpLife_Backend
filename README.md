@@ -21,7 +21,7 @@ With real-time communication, you can enjoy seamless conversations with your con
 - 👥Group chats
 - 📃Message history
 - 💅Animated avatars and backgrounds
-- ✅Check lists in messages
+- ✅Check lists in message
 - 🏷️Message Tags
 
 ## Requirements
