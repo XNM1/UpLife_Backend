@@ -1,6 +1,6 @@
 <div align="center"><img src="Logo.png" alt="UpLife Messenger Logo"/></div>
 <h1 align="center">UpLife Messenger</h1>
-<p align="center" style="font-style:italic">The highly available and scalable messenger for endless communication</p>
+*<p align="center" style="font-style:italic">The highly available and scalable messenger for endless communication</p>*
 
 ## About
 
@@ -16,13 +16,13 @@ With real-time communication, you can enjoy seamless conversations with your con
 
 ## Features
 
-- Real-time messaging
-- User registration, authentication and authorization
-- Group chats
-- Message history
-- Animated avatars and backgrounds
-- Check lists in messages
-- Message Tags
+- ⚡Real-time messaging
+- 🔑User registration, authentication and authorization
+- 👥Group chats
+- 📃Message history
+- 💅Animated avatars and backgrounds
+- ✅Check lists in messages
+- 🏷️Message Tags
 
 ## Requirements
 
